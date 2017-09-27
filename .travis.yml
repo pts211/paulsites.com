@@ -23,6 +23,6 @@ before_deploy:
 deploy:
   provider: script
   skip_cleanup: true
-  script: rsync -r --delete-after --quiet $TRAVIS_BUILD_DIR/_site broncobots_travis@teambroncobots.com:/home/broncobots_travis/qa.teambroncobots.com
+  script: rsync -r --delete-after --quiet $TRAVIS_BUILD_DIR/_site/* broncobots_travis@teambroncobots.com:/home/broncobots_travis/qa.teambroncobots.com
   on:
     branch: master
