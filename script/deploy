@@ -1,5 +1,7 @@
 #!/bin/bash
 
+echo "Inside of the deployment script."
+
 # skip if build is triggered by pull request
 if [ $TRAVIS_PULL_REQUEST == "true" ]; then
   echo "this is PR, exiting"
@@ -9,7 +11,7 @@ fi
 # enable error reporting to the consoles
 set -e
 
-echo "Check which branch to deploy. Current branch is: ${$TRAVIS_BRANCH}"
+echo "Check which branch to deploy"
 
 if [ "$TRAVIS_BRANCH" = "master" ]; then
   echo "DEPLOYING: PRODUCTION"
