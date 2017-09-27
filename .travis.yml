@@ -25,7 +25,9 @@ before_deploy:
 deploy:
   provider: script
   skip_cleanup: true
-  before_script: chmod u+x ./script/deploy
-  script: ./script/deploy
+  script:
+    - echo "Hello, World!"
+    - ls
+    - ./script/deploy
   on:
     branch: qa
