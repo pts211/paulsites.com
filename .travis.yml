@@ -25,12 +25,12 @@ deploy:
   #deploy qa to the qa environment
   provider: script
   skip_cleanup: true
-  script: rsync -r --delete-after --quiet $TRAVIS_BUILD_DIR/_site/ broncobots_travis@teambroncobots.com:/home/broncobots_travis/qa.teambroncobots.com/
+  script: rsync -r --delete-after --quiet $TRAVIS_BUILD_DIR/_site/ broncobots_travis@teambroncobots.com:/home/broncobots_travis/prd.teambroncobots.com/
   on:
-    branch: qa
+    branch: master
   #deploy master to production
   provider: script
   skip_cleanup: true
-  script: rsync -r --delete-after --quiet $TRAVIS_BUILD_DIR/_site/ broncobots_travis@teambroncobots.com:/home/broncobots_travis/prod.teambroncobots.com/
+  script: rsync -r --delete-after --quiet $TRAVIS_BUILD_DIR/_site/ broncobots_travis@teambroncobots.com:/home/broncobots_travis/qa.teambroncobots.com/
   on:
-    branch: master
+    branch: qa
