@@ -22,12 +22,13 @@ before_deploy:
 - chmod 600 /tmp/deploy_rsa
 - ssh-add /tmp/deploy_rsa
 deploy:
+  #deploy qa to the qa environment
   provider: script
   skip_cleanup: true
   script: rsync -r --delete-after --quiet $TRAVIS_BUILD_DIR/_site/ broncobots_travis@teambroncobots.com:/home/broncobots_travis/qa.teambroncobots.com/
   on:
       branch: qa
-deploy:
+  #deploy master to production
   provider: script
   skip_cleanup: true
   script: rsync -r --delete-after --quiet $TRAVIS_BUILD_DIR/_site/ broncobots_travis@teambroncobots.com:/home/broncobots_travis/prod.teambroncobots.com/
