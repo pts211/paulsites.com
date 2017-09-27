@@ -25,9 +25,13 @@ deploy:
   provider: script
   skip_cleanup: true
   script:
-   - if [ "$TRAVIS_BRANCH" == "master" ]; then rsync -r --delete-after --quiet $TRAVIS_BUILD_DIR/_site/ broncobots_travis@teambroncobots.com:/home/broncobots_travis/prod.teambroncobots.com/; fi
-   - if [ "$TRAVIS_BRANCH" == "qa" ]; then rsync -r --delete-after --quiet $TRAVIS_BUILD_DIR/_site/ broncobots_travis@teambroncobots.com:/home/broncobots_travis/qa.teambroncobots.com/; fi
+  - if [ "$TRAVIS_BRANCH" == "qa" ]; then
+    rsync -r --delete-after --quiet $TRAVIS_BUILD_DIR/_site/ broncobots_travis@teambroncobots.com:/home/broncobots_travis/qa.teambroncobots.com/; 
+    fi
+  - if [ "$TRAVIS_BRANCH" == "master" ]; then
+    rsync -r --delete-after --quiet $TRAVIS_BUILD_DIR/_site/ broncobots_travis@teambroncobots.com:/home/broncobots_travis/prod.teambroncobots.com/;
+    fi
   on:
       branch: 
-        - master
-        - qa
+      - master
+      - qa
